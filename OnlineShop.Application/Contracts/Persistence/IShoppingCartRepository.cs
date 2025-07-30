@@ -4,5 +4,6 @@ namespace OnlineShop.Application.Contracts.Persistence
 {
     public interface IShoppingCartRepository : IGenericRepository<ShoppingCart>
     {
+        public Task<ShoppingCart> CheckExistShoppingCart(int userId);
     }
 }

@@ -14,9 +14,14 @@ namespace OnlineShop.Persistence.Repositories
             _context = context;
         }
 
-        public async Task<bool> ExistUserName(string userName)
+        public async Task<bool> CheckExistUser(string userName)
         {
             return await _context.Users.AnyAsync(u => u.UserName == userName);
+        }
+
+        public async Task<bool> CheckExistUser(int id)
+        {
+            return await _context.Users.AnyAsync(u => u.Id == id);
         }
 
         public async Task<User> GetUserWithUserName(string userName)

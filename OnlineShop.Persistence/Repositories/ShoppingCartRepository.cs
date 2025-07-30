@@ -12,5 +12,11 @@ namespace OnlineShop.Persistence.Repositories
         {
             _context = context;
         }
+
+        public async Task<ShoppingCart> CheckExistShoppingCart(int userId)
+        {
+            var cart = _context.ShoppingCarts.FirstOrDefault(s => s.UserId == userId);
+            return cart;
+        }
     }
 }

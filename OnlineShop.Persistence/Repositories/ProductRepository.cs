@@ -1,4 +1,5 @@
-﻿using OnlineShop.Application.Contracts.Persistence;
+﻿using Microsoft.EntityFrameworkCore;
+using OnlineShop.Application.Contracts.Persistence;
 using OnlineShop.Domain.Entities.Products;
 using OnlineShop.Persistence.Context;
 
@@ -11,6 +12,11 @@ namespace OnlineShop.Persistence.Repositories
         public ProductRepository(OnlineShopCQRSDbContext context) : base(context)
         {
             _context = context;
+        }
+
+        public async Task<Product> CheckExistProduct(int id)
+        {
+            return await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
         }
     }
 }

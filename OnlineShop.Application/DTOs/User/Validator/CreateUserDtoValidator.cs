@@ -12,7 +12,7 @@ namespace OnlineShop.Application.DTOs.User.Validator
 
             RuleFor(u => u.UserName).NotEmpty().WithMessage("نمی تواند خالی باشد").MustAsync(async (userName, token) =>
             {
-                var result = await _userRepository.ExistUserName(userName);
+                var result = await _userRepository.CheckExistUser(userName);
                 return !result;
             }).WithMessage("نام کاربری موجود است");
             RuleFor(u => u.Email).EmailAddress().WithMessage("نمی تواند خالی باشد");
