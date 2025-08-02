@@ -15,7 +15,14 @@ namespace OnlineShop.Application.DTOs.ShoppingCart.Validator
 
             RuleFor(a => a.ProductId).MustAsync(async (id, token) =>
             {
-                return await _productRepository.CheckExistProduct(id);
+                var product = await _productRepository.CheckExistProduct(id);
+
+                if (product == null)
+                {
+                    return false;
+                }
+
+                return true;
             }).WithMessage("محصول مورد نظر وجود ندارد");
 
             RuleFor(a => a.UserId).MustAsync(async (id, token) =>

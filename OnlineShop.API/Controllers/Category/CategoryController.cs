@@ -32,7 +32,7 @@ namespace OnlineShop.API.Controllers.Category
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            var request = new GetCategoryRequest();
+            var request = new GetCategoryRequest() { Id = id };
             var result = await _mediator.Send(request);
             return Ok(result);
         }
