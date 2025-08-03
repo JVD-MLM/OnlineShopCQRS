@@ -18,8 +18,6 @@ namespace OnlineShop.Application.Features.Category.Handlers.Command
 
         public async Task<Unit> Handle(UpdateCategoryRequest request, CancellationToken cancellationToken)
         {
-            // todo: fix update bug all project
-
             var category = await _categoryRepository.Get(request.UpdateCategoryDto.Id);
             category = _mapper.Map(request.UpdateCategoryDto, category);
             await _categoryRepository.Update(category);

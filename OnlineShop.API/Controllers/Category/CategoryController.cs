@@ -53,7 +53,7 @@ namespace OnlineShop.API.Controllers.Category
 
             var request = new UpdateCategoryRequest() { UpdateCategoryDto = updateCategoryDto };
             request.UpdateCategoryDto.Id = id;
-            var result = await _mediator.Send(request);  // todo: fix bug
+            var result = await _mediator.Send(request);
             return Ok(result);
         }
 

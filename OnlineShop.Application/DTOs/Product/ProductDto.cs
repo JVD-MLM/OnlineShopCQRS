@@ -7,6 +7,6 @@ namespace OnlineShop.Application.DTOs.Product
         public string Name { get; set; }
         public string Desc { get; set; }
         public int Price { get; set; }
-        public int CategoryId { get; set; } // todo: to public string CategoryName { get; set; }
+        public int CategoryId { get; set; }
     }
 }
