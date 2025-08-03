@@ -19,7 +19,7 @@ namespace OnlineShop.Application.Features.Product.Handlers.Command
         public async Task<Unit> Handle(UpdateProductRequest request, CancellationToken cancellationToken)
         {
             var product = await _productRepository.Get(request.UpdateProductDto.Id);
-            var result = _mapper.Map<Domain.Entities.Products.Product>(request.UpdateProductDto);
+            var result = _mapper.Map(request.UpdateProductDto, product);
             await _productRepository.Update(result);
             return Unit.Value;
         }

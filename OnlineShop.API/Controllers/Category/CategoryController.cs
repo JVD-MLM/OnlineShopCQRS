@@ -39,7 +39,7 @@ namespace OnlineShop.API.Controllers.Category
 
         // POST api/<CategoryController>
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] CreateCategoryDto createCategoryDto)
+        public async Task<IActionResult> Add([FromBody] CreateCategoryDto createCategoryDto)
         {
             var request = new CreateCategoryRequest() { CreateCategoryDto = createCategoryDto };
             var result = await _mediator.Send(request);
@@ -48,7 +48,7 @@ namespace OnlineShop.API.Controllers.Category
 
         // PUT api/<CategoryController>/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] UpdateCategoryDto updateCategoryDto)
+        public async Task<IActionResult> Edit(int id, [FromBody] UpdateCategoryDto updateCategoryDto)
         {
 
             var request = new UpdateCategoryRequest() { UpdateCategoryDto = updateCategoryDto };

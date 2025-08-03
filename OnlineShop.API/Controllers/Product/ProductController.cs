@@ -39,7 +39,7 @@ namespace OnlineShop.API.Controllers.Product
 
         // POST api/<ProductController>
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] CreateProductDto createProductDto)
+        public async Task<IActionResult> Add([FromBody] CreateProductDto createProductDto)
         {
             var request = new CreateProductRequest() { CreateProductDto = createProductDto };
             var result = await _mediator.Send(request);
@@ -48,7 +48,7 @@ namespace OnlineShop.API.Controllers.Product
 
         // PUT api/<ProductController>/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] UpdateProductDto updateProductDto)
+        public async Task<IActionResult> Edit(int id, [FromBody] UpdateProductDto updateProductDto)
         {
             var request = new UpdateProductRequest() { UpdateProductDto = updateProductDto };
             request.UpdateProductDto.Id = id;
