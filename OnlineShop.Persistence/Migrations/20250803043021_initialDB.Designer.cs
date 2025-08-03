@@ -12,8 +12,8 @@ using OnlineShop.Persistence.Context;
 namespace OnlineShop.Persistence.Migrations
 {
     [DbContext(typeof(OnlineShopCQRSDbContext))]
-    [Migration("20250802173351_initDesktop")]
-    partial class initDesktop
+    [Migration("20250803043021_initialDB")]
+    partial class initialDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

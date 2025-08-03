@@ -35,7 +35,7 @@ namespace OnlineShop.API.Controllers.User
         {
             var request = new LoginUserRequest() { LoginUserDto = loginUserDto };
             var result = await _mediator.Send(request);
-            return Ok(result);
+            return NotFound(result);
         }
     }
 }
